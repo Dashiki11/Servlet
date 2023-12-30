@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Product List Display Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <p>This Webpage Displays information on a Database by using Java.</p>
+         <button id="runButton">Display Products</button>
+    <div id="resultContainer">
+
+    <script>
+        document.getElementById("runButton").addEventListener("click", function () {
+            // Make an AJAX request to the Servlet
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById("resultContainer").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.open("GET", "product", true);
+            xhr.send();
+        });
+    </script></div>
+    </body>
+</html>
